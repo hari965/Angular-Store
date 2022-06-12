@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <i [ngStyle]="{ 'font-size': '3rem' }" class="fa-brands fa-angular"></i>
+    <a
+      class="navbar-brand"
+      href="#"
+      [ngStyle]="{ 'font-size': '1.5rem', 'font-weight': 'bold' }"
+      >Ng Store</a
+    >
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse searchCls" id="navbarSupportedContent">
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="searchTerm"
+        (keyup)="search($event)"
+        placeholder="search..."
+      />
+    </div>
+    <button routerLink="cart" class="btn btn-secondary">
+      <i style="font-size: 30px" class="fas fa-cart-plus"></i>
+      <div style="font-size: 10px" class="badge bg-danger">{{ totalItem }}</div>
+    </button>
+    <i class="fa-solid fa-user userCls" routerLink="/profile"></i>
+  </div>
+</nav>

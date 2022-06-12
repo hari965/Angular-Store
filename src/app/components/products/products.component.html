@@ -1,0 +1,64 @@
+<div class="card-top container-fluid">
+  <div class="container d-flex containerCls">
+    <div class="item">
+      <a (click)="filter('')">
+        <i class="fa-solid fa-shop styleCls"></i>
+        <h6>All products</h6>
+      </a>
+    </div>
+    <div class="item">
+      <a (click)="filter('electronics')">
+        <i class="fa-solid fa-plug styleCls"></i>
+        <h6>Electronics</h6>
+      </a>
+    </div>
+    <div class="item">
+      <a (click)="filter('fashion')">
+        <i class="fa-solid fa-shirt styleCls"></i>
+        <h6>Clothing</h6>
+      </a>
+    </div>
+    <div class="item">
+      <a (click)="filter('jewelery')">
+        <i class="fa-solid fa-gem styleCls"></i>
+        <h6>Jewllery</h6>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <ng-container
+      *ngFor="let item of filterCategory | filters: searchKey:'title'"
+    >
+      <div class="card col-md-3">
+        <img src="{{ item.image }}" alt="" />
+        <h5
+          style="
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100ch;
+          "
+        >
+          {{ item.title }}
+        </h5>
+        <p
+          style="
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100ch;
+          "
+        >
+          {{ item.description }}
+        </p>
+        <p><strong>Price:</strong> RS.{{ item.price }}</p>
+        <button class="btn btn-secondary" (click)="addtocart(item)">
+          Add to cart
+        </button>
+      </div>
+    </ng-container>
+  </div>
+</div>
