@@ -59,3 +59,7 @@
   text-overflow: ellipsis;
   max-width: 100ch;
 }
+.eyeCls {
+  cursor: pointer;
+  margin-left: 0.5rem;
+}

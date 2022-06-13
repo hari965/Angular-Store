@@ -14,11 +14,6 @@ export class CartService {
   getProducts() {
     return this.productList.asObservable();
   }
-  getProductById(id: number) {
-    return this.getProducts().pipe(
-      map((products: any[]) => products.find((p) => p.productId === id))
-    );
-  }
   setProduct(product: any) {
     this.cartItemList.push(...product);
     this.productList.next(product);

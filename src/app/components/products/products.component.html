@@ -26,7 +26,6 @@
     </div>
   </div>
 </div>
-
 <div class="container">
   <div class="row">
     <ng-container
@@ -34,31 +33,68 @@
     >
       <div class="card col-md-3">
         <img src="{{ item.image }}" alt="" />
-        <h5
-          style="
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            max-width: 100ch;
-          "
-        >
+        <h5 class="titleCls">
           {{ item.title }}
         </h5>
-        <p
-          style="
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            max-width: 100ch;
-          "
-        >
+        <p class="descCls">
           {{ item.description }}
         </p>
-        <p><strong>Price:</strong> RS.{{ item.price }}</p>
+        <p><strong>Price :</strong> RS.{{ item.price }}</p>
+        <p
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          (click)="getProductById(item.id)"
+        >
+          <strong>View Product :</strong><i class="fa-solid fa-eye eyeCls"></i>
+        </p>
         <button class="btn btn-secondary" (click)="addtocart(item)">
           Add to cart
         </button>
       </div>
     </ng-container>
+  </div>
+  <!-- Product Details Modal -->
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Product Details</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body" *ngIf="products">
+          <div class="card col-auto">
+            <img src="{{ products.image }}" alt="" />
+            <h5 class="titleCls">
+              {{ products.title }}
+            </h5>
+            <p class="descCls">
+              {{ products.description }}
+            </p>
+            <p><strong>Price:</strong> RS.{{ products.price }}</p>
+            <p><strong>Rating:</strong>{{ products.rating.rate }}</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

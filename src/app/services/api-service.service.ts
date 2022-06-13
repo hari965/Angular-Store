@@ -1,17 +1,25 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { map } from 'rxjs/operators';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { map } from "rxjs/operators";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class ApiServiceService {
   constructor(private http: HttpClient) {}
 
-  private apiUrl = 'https://fakestoreapi.com/products';
+  private apiUrl = "https://fakestoreapi.com/products";
   getProduct() {
     return this.http.get<any>(this.apiUrl).pipe(
       map((res) => {
+        return res;
+      })
+    );
+  }
+  getProductById(id: number) {
+    return this.http.get<any>(`${this.apiUrl}/${id}`).pipe(
+      map((res) => {
+        console.log(res);
         return res;
       })
     );
