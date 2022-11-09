@@ -1,6 +1,6 @@
 # Angular-Store
 
-Simple angular store application
+Sample angular e-commerce application
 
 Functionalities:
 1.Product Listing
